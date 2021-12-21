@@ -10,7 +10,7 @@ import path from 'path';
 import { Router } from 'connect-router-decorators';
 
 const app = express();
-const router = new Router(app, path.resolve('./controllers'), {
+const router = new Router(path.resolve('./controllers'), {
   searchPattern: '**/*.{js,ts}', // default
 });
 
