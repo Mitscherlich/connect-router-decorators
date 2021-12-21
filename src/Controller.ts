@@ -8,5 +8,5 @@ export type ControllerOptions = {
 export const symbolPrefix = Symbol('prefix');
 
 export const controller = (path: string) => (target: any) => {
-  // TODO
+  target[symbolPrefix] = path;
 };

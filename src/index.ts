@@ -1,4 +1,4 @@
-import express, { Application, RequestHandler } from 'express';
+import express, { RequestHandler } from 'express';
 import glob from 'glob';
 import { resolve } from 'path';
 import { symbolPrefix } from './Controller';
