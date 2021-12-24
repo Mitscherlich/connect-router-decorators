@@ -1,3 +1,4 @@
+import type { RequestHandler } from 'express';
 import { Methods } from './Methods';
 
 export type ControllerOptions = {
@@ -7,6 +8,14 @@ export type ControllerOptions = {
 
 export const symbolPrefix = Symbol('prefix');
 
-export const controller = (path: string) => (target: any) => {
+export interface Controller {
+  new (): Controller;
+
+  [handler: string]: RequestHandler;
+
+  [symbolPrefix]?: string;
+}
+
+export const controller = (path: string) => (target: Controller) => {
   target[symbolPrefix] = path;
 };

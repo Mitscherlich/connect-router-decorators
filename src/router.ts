@@ -1,11 +1,11 @@
-import { RequestHandler } from 'express';
-import { ControllerOptions } from './Controller';
+import type { RequestHandler } from 'express';
+import type { Controller, ControllerOptions } from './Controller';
 import { normalizePath } from './utils';
 
-export const routersMap = new Map<ControllerOptions & { target: any }, RequestHandler[]>();
+export const routersMap = new Map<ControllerOptions & { target: Controller }, RequestHandler[]>();
 
-export const router = (config: ControllerOptions) => (target: any, key: string) => {
+export const router = (config: ControllerOptions) => (target: Controller, key: string) => {
   config.path = normalizePath(config.path);
 
-  routersMap.set({ target, ...config }, target[key]);
+  routersMap.set({ target, ...config }, [target[key]]);
 };
