@@ -46,6 +46,7 @@ bootstrap();
 ## TODO(s)
 
 - [ ] Multi-roots router support.
+- [ ] Multi-handlers support.
 
 ## License
 
